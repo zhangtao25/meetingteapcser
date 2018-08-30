@@ -5,7 +5,7 @@ var router = express.Router();
 // Connection URL
 const url = 'mongodb://101.132.46.146:27017';
 // Database Name
-const dbName = 'zzccpc';
+const dbName = 'meetingteapc';
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
