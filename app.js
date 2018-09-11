@@ -8,6 +8,8 @@ var allTypesOfTeaRouter = require('./routes/allTypesOfTea');
 var allTeaDetailsRouter = require('./routes/allTeaDetails');
 var addGoodsRouter = require('./routes/addGoods');
 var getGoodsRouter = require('./routes/getGoods');
+var delGoodsRouter = require('./routes/delGoods');
+var updateGoodsRouter = require('./routes/updateGoods');
 
 var app = express();
 
@@ -29,6 +31,8 @@ app.use('/allTypesOfTea', allTypesOfTeaRouter);
 app.use('/allTeaDetails', allTeaDetailsRouter);
 app.use('/addGoods', addGoodsRouter);
 app.use('/getGoods', getGoodsRouter);
+app.use('/delGoods', delGoodsRouter);
+app.use('/updateGoods' ,updateGoodsRouter);
 
 
 // catch 404 and forward to error handler

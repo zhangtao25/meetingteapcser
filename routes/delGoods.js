@@ -1,6 +1,8 @@
 var express = require('express');
-const MongoClient = require('mongodb').MongoClient;
+const mongodb = require('mongodb');
 var router = express.Router();
+const MongoClient = mongodb.MongoClient
+const ObjectID = mongodb.ObjectID;
 
 // Connection URL
 const url = 'mongodb://101.132.46.146:27017';
@@ -15,11 +17,10 @@ router.get('/', function(req, res, next) {
 	 
 	  const db = client.db(dbName);
     const collection = db.collection('goods');
-    console.log(typeof req.query)
-    collection.insertMany([req.query],
-      function(err, result) {
-        res.send("ok");
-      });
+
+    collection.deleteOne({_id:ObjectID(req.query['0'])},function(err, result) {
+      res.send("ok")
+    })
 	});
 });
 
