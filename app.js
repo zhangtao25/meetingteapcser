@@ -4,12 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var allTypesOfTeaRouter = require('./routes/allTypesOfTea');
-var allTeaDetailsRouter = require('./routes/allTeaDetails');
-var addGoodsRouter = require('./routes/addGoods');
-var getGoodsRouter = require('./routes/getGoods');
-var delGoodsRouter = require('./routes/delGoods');
-var updateGoodsRouter = require('./routes/updateGoods');
+var goodsRouter = require('./routes/goods');
+var userRouter = require('./routes/user');
 
 var app = express();
 
@@ -27,13 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/allTypesOfTea', allTypesOfTeaRouter);
-app.use('/allTeaDetails', allTeaDetailsRouter);
-app.use('/addGoods', addGoodsRouter);
-app.use('/getGoods', getGoodsRouter);
-app.use('/delGoods', delGoodsRouter);
-app.use('/updateGoods' ,updateGoodsRouter);
-
+app.use('/goods' ,goodsRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
