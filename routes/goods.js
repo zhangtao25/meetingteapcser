@@ -61,4 +61,16 @@ router.get('/updateGoods', (req, res, next) => {
 	});
 });
 
+
+router.get('/getEightHotGoods', (req, res, next) => {
+	MongoClient.connect(url, (err, client) => {
+	  const db = client.db(dbName)
+    const collection = db.collection('goods')
+    collection.find({}).toArray((err, docs) => {
+			res.send(docs)
+	    client.close()
+    });
+	});
+});
+
 module.exports = router;
